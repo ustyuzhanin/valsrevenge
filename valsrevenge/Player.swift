@@ -69,20 +69,28 @@ class Player: SKSpriteNode {
         switch currentDirection {
         case .up:
             throwDirection = CGVector(dx: 0, dy: 300)
+            projectile.zRotation = 0
         case .down:
             throwDirection = CGVector(dx: 0, dy: -300)
+            projectile.zRotation = -CGFloat.pi
         case .left:
             throwDirection = CGVector(dx: -300, dy: 0)
+            projectile.zRotation = CGFloat.pi / 2
         case .right, .stop:
             throwDirection = CGVector(dx: 300, dy: 0)
+            projectile.zRotation = -CGFloat.pi / 2
         case .topLeft:
             throwDirection = CGVector(dx: -300, dy: 300)
+            projectile.zRotation = CGFloat.pi / 4
         case .topRight:
             throwDirection = CGVector(dx: 300, dy: 300)
+            projectile.zRotation = -CGFloat.pi / 4
         case .bottomLeft:
             throwDirection = CGVector(dx: -300, dy: -300)
+            projectile.zRotation = 3 * CGFloat.pi / 4
         case .bottomRight:
             throwDirection = CGVector(dx: 300, dy: -300)
+            projectile.zRotation = 3 * -CGFloat.pi / 4
         }
         
         let throwProjectile = SKAction.move(by: throwDirection, duration: 0.25)
